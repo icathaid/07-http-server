@@ -10,9 +10,9 @@ module.exports = (req) => {
 
     if( !(req || req.url) ) { reject('Invalid Request Object. Cannot Parse'); }
 
-    console.log('pre', req.url);
+    // console.log('pre', req.url);
     req.url = url.parse(req.url);
-    console.log('post', req.url);
+    // console.log('post', req.url);
     //  see what other things you can .tack(on) to the req.url and log out
     //  .pathname .query
 
