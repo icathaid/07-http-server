@@ -37,7 +37,7 @@ let promisify = (fn) => (...args) => {
 let someNewFunction = promisify(someFunction);
 
 // now, we can use the hot new syntax!
-someNewFunction('foo')
+someNewFunction(req)
   .then(data => console.log('DATA', data))
   .catch(err=>console.log('ERR', err));
   

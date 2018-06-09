@@ -8,6 +8,7 @@
 // 1st Party library
 const http = require('http');
 const cowsay = require('cowsay');
+// const promisify = require('./lib/promisify');
 // Local Libraries
 // parser will tear the URL apart and give us back an object with things like path, query params, etc.
 // it will also deal with POST data and append JSON to req.body if sent
@@ -36,14 +37,10 @@ const requestHandler = (req,res) => {
         res.end();
       }
       if ( req.method === 'GET' && req.url.pathname === '/cowsay'  ) {
+        res.setHeader('Content-Type', 'text/json');
         res.statusCode = 200;
         res.statusMessage = 'OK';
-        let bill = cowsay.say('things');
-        res.write(cowsay.say({
-          text : req.url.query.text,
-          e : "oO",
-          T : "U"
-        }));
+        res.write(cowsay.say({text: req.url.query.text}));
         res.end();
      }
   
