@@ -2,10 +2,6 @@ language: node_js
 node_js:
   - "9"
 
-# before_script:
-# # - cd lab-james
-# - npm i
-
 script:
   - npm run lint
   - npm test
