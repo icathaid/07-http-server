@@ -35,13 +35,19 @@ const requestHandler = (req,res) => {
         res.statusMessage = 'OK';
         res.write('home');
         res.end();
+        return;
       }
       if ( req.method === 'GET' && req.url.pathname === '/cowsay'  ) {
         res.setHeader('Content-Type', 'text/json');
         res.statusCode = 200;
         res.statusMessage = 'OK';
-        res.write(cowsay.say({text: req.url.query.text}));
+        if(!req.url.query.text){
+          res.write(cowsay.say({text: 'stuff'}));
+        } else {
+          res.write(cowsay.say({text: req.url.query.text}));
+        };
         res.end();
+        return;
      }
   
       // Here, we have a "POST" request which will always return a JSON object.  That object will either be
@@ -52,6 +58,7 @@ const requestHandler = (req,res) => {
         res.statusMessage = 'OK';
         res.write( JSON.stringify(req.body) );
         res.end();
+        return;
      }
       else {
         res.setHeader('Content-Type', 'text/html');
@@ -67,6 +74,7 @@ const requestHandler = (req,res) => {
       res.writeHead(500);
       res.write(err);
       res.end();
+      return;
     });
 };
 
