@@ -29,14 +29,12 @@ const requestHandler = (req,res) => {
         return;
      }
   
-      // Here, we have a "POST" request which will always return a JSON object.  That object will either be
-      // the JSON that you posted in (just spitting it back out), or an error object, formatted to look like JSON
-
       if ( req.method === 'POST' && req.url.pathname === '/cowsay' ) {
         res.setHeader('Content-Type', 'text/json');
         res.statusCode = 200;
         res.statusMessage = 'OK';
-        res.write( JSON.stringify({content: cowsay.say({text: req.body.text})}));
+        console.log();
+        res.write( JSON.stringify(req.body));
         res.end();
         return;
      }
