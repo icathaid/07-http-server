@@ -1,8 +1,3 @@
-
-
-/* NOT EXPRESS SERVER */
-
-
 'use strict';
 
 // 1st Party library
@@ -17,7 +12,7 @@ const requestHandler = (req,res) => {
         res.setHeader('Content-Type', 'text/html');
         res.statusCode = 200;
         res.statusMessage = 'OK';
-        res.write('home');
+        res.write('<h1>home</h1>');
         res.end();
         return;
       }
@@ -26,7 +21,7 @@ const requestHandler = (req,res) => {
         res.statusCode = 200;
         res.statusMessage = 'OK';
         if(!req.url.query.text){
-          res.write(cowsay.say({text: 'Give me something to say'}));
+          res.write(cowsay.say({text: 'I need something good to say!'}));
         } else {
           res.write(cowsay.say({text: req.url.query.text}));
         };
@@ -61,10 +56,8 @@ const requestHandler = (req,res) => {
       return;
     });
 };
-
 // Server callback
 const app = http.createServer(requestHandler);
-
 // Expose the start and stop methods.  index.js will call on these.
 module.exports = {
   start: (port,callback) => app.listen(port,callback),
