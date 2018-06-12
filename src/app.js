@@ -12,7 +12,7 @@ const requestHandler = (req,res) => {
         res.setHeader('Content-Type', 'text/html');
         res.statusCode = 200;
         res.statusMessage = 'OK';
-        res.write('<h1>home</h1>');
+        res.write('<h1>What does the cow say?</h1><h2>Vanilla HTTP Server</h2><p>This is a basic HTTP server utilizing the cowsay app to demonstrate functionality of GET and POST routes.</p><a href src="/cowsay">Click here to try</a>');
         res.end();
         return;
       }
@@ -29,12 +29,21 @@ const requestHandler = (req,res) => {
         return;
      }
   
-      if ( req.method === 'POST' && req.url.pathname === '/cowsay' ) {
+      if (req.method === 'POST' && req.url.pathname === '/cowsay' && req.body.text) {
         res.setHeader('Content-Type', 'text/json');
         res.statusCode = 200;
         res.statusMessage = 'OK';
-        console.log();
-        res.write( JSON.stringify(req.body));
+        res.write( JSON.stringify(req.body));  
+        res.end();
+        return;
+     }
+     if (req.method === 'POST' && !req.body.text){
+        res.setHeader('Content-Type', 'text/json');
+        rest.statusCode = 400;
+        rest.statusMessage = 'Invalid request';
+        res.write(JSON.stringify({
+          "error": "invalid request: text query required"
+        }));
         res.end();
         return;
      }
