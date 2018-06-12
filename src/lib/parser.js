@@ -19,7 +19,7 @@ module.exports = (req) => {
     req.url.query = queryString.parse(req.url.query);
 
 
-    console.log('url.query', req.url.query);
+    // console.log('url.query', req.url.query);
     
     if(! req.method.match(/POST|PUT|PATCH/) ) {
       resolve(req);
