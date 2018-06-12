@@ -1,20 +1,24 @@
 ![cf](https://i.imgur.com/7v5ASc8.png) Lab 07: Vanilla HTTP Server
 ======
+#links
+PR: https://github.com/icathaid/07-http-server/pull/7
+Master: https://github.com/icathaid/07-http-server
+Travis: https://travis-ci.com/icathaid/07-http-server.svg?branch=master
 
 ## Submission Instructions
-* Create a PR to your master from your working branch.
-[]  check for travis integration
-[]  figure out where the real checkbox goes
+[x]  Create a PR to your master from your working branch.
+[x] check for travis integration
 
 * Submit on canvas:
   * a question and observation
-  []  Question:
-        
-  []  Observation:
+  [x]  Question:
+      How can I introduce an error that I can test the .catch for?  
+  [x]  Observation:
+      I need to force myself to take breaks, even on the rare occasions when I don't want to, because if I concentrate on one thing for too long, I start to get really, really irritable.  
   [x] how long you spent
         It's hard to say, because I've been working on stuff on and off.  I'd roughly guess about 8 hours.  It took a long time to figure out where to get started and I needed a lot of help from the starter code, most of the time was spent just tracking down weird bugs.
-  []  link to your pull request
-  []  link to your build at travis-ci URL
+  [x]  link to your pull request
+  [x]  link to your build at travis-ci URL
   
 
 ## Feature Tasks  
@@ -27,7 +31,7 @@ The server module is responsible for creating an http server defining all route 
 
 ###### GET /cowsay?text={message}
 
-  []  When a client makes a GET request to /cowsay?text={message} the server should parse the querystring for a text key. It should then send a rendered HTML page with a cowsay cow speaking the value of the text query. If their is no text query the cow message should say `'I need something good to say!'`. 
+  [x]  When a client makes a GET request to /cowsay?text={message} the server should parse the querystring for a text key. It should then send a rendered HTML page with a cowsay cow speaking the value of the text query. If their is no text query the cow message should say `'I need something good to say!'`. 
 ###### POST /api/cowsay
  
   [x] When a client makes a POST request to /api/cowsay it should send JSON that includes `{"text": "<message>"}`. The server should respond with a JSON body `{"content": "<cowsay cow>"}`.  
